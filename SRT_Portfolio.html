@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sandeep Reddy Telaga | Senior Data Analyst & BI Lead</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f0f0f;
+    --ink-muted: #5a5a5a;
+    --ink-faint: #999;
+    --bg: #f7f5f0;
+    --bg-card: #ffffff;
+    --accent: #1a3a2a;
+    --accent-light: #e8f0eb;
+    --accent-mid: #2d6248;
+    --gold: #c4892a;
+    --gold-light: #fdf3e3;
+    --border: rgba(0,0,0,0.10);
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Outfit', system-ui, sans-serif;
+    --mono: 'DM Mono', 'Courier New', monospace;
+    --radius: 4px;
+    --radius-lg: 12px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(1.5rem, 5vw, 4rem); height: 64px;
+    background: rgba(247,245,240,0.90); backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: var(--mono); font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 14px; font-weight: 400; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { font-size: 13px; font-weight: 500; background: var(--accent); color: #fff; padding: 8px 20px; border-radius: 100px; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--accent-mid); }
+
+  /* HERO */
+  #hero {
+    padding-top: calc(64px + clamp(4rem, 8vw, 6rem));
+    padding-bottom: clamp(4rem, 8vw, 6rem);
+    padding-left: clamp(1.5rem, 5vw, 4rem);
+    padding-right: clamp(1.5rem, 5vw, 4rem);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    max-width: 1120px; margin: 0 auto; min-height: 100vh;
+  }
+  .hero-eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-mid); margin-bottom: 1.2rem; }
+  .hero-eyebrow span { display: inline-block; background: var(--accent-light); padding: 4px 12px; border-radius: 100px; }
+  h1 { font-family: var(--serif); font-size: clamp(2.6rem, 4.5vw, 4rem); font-weight: 400; line-height: 1.1; color: var(--ink); margin-bottom: 1.2rem; }
+  h1 em { color: var(--accent-mid); font-style: italic; }
+  .hero-sub { font-size: 17px; color: var(--ink-muted); line-height: 1.7; margin-bottom: 2.5rem; max-width: 480px; }
+  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; padding: 14px 28px; border-radius: 100px; font-size: 15px; font-weight: 500; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-primary:hover { background: var(--accent-mid); transform: translateY(-1px); }
+  .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--border); background: var(--bg-card); color: var(--ink); padding: 14px 28px; border-radius: 100px; font-size: 15px; font-weight: 500; text-decoration: none; transition: border-color 0.2s, transform 0.15s; }
+  .btn-outline:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+  .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; }
+  .avatar-frame { width: clamp(220px, 28vw, 360px); height: clamp(260px, 34vw, 420px); border-radius: 200px 200px 180px 180px; background: var(--accent-light); border: 2px solid rgba(45,98,72,0.18); overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center; }
+  .avatar-placeholder { font-family: var(--serif); font-size: clamp(5rem, 10vw, 8rem); color: var(--accent-mid); opacity: 0.3; user-select: none; }
+  .avatar-frame img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
+  .hero-badge { position: absolute; bottom: 2rem; right: -1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 12px 18px; box-shadow: var(--shadow); font-size: 13px; display: flex; align-items: center; gap: 10px; }
+  .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #2a9d5c; flex-shrink: 0; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* STATS */
+  .stats-bar { background: var(--accent); padding: 2.5rem clamp(1.5rem, 5vw, 4rem); }
+  .stats-inner { max-width: 1120px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 2rem; text-align: center; }
+  .stat-value { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); color: #fff; line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 13px; color: rgba(255,255,255,0.65); letter-spacing: 0.04em; }
+  .stat-divider { width: 1px; background: rgba(255,255,255,0.15); align-self: stretch; }
+
+  /* SECTION */
+  section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem); max-width: 1120px; margin: 0 auto; }
+  .section-label { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  h2 { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 400; line-height: 1.15; color: var(--ink); margin-bottom: 1.5rem; }
+  h3 { font-size: 17px; font-weight: 500; color: var(--ink); margin-bottom: 0.4rem; }
+
+  /* ABOUT */
+  #about .grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--ink-muted); margin-bottom: 1.2rem; font-size: 16px; }
+  .skills-section { margin-top: 2rem; }
+  .skills-category { margin-bottom: 1.25rem; }
+  .skills-category-label { font-size: 12px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-faint); margin-bottom: 8px; }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 7px; }
+  .skill-tag { font-family: var(--mono); font-size: 11px; background: var(--accent-light); color: var(--accent); padding: 4px 12px; border-radius: 100px; border: 1px solid rgba(45,98,72,0.2); }
+  .skill-tag.gold { background: var(--gold-light); color: var(--gold); border-color: rgba(196,137,42,0.25); }
+  .skill-tag.blue { background: #edf2ff; color: #3557c0; border-color: rgba(53,87,192,0.2); }
+
+  /* TIMELINE */
+  .experience-timeline { display: flex; flex-direction: column; gap: 2rem; }
+  .exp-item { padding-left: 1.25rem; border-left: 2px solid var(--border); transition: border-color 0.2s; }
+  .exp-item:hover { border-color: var(--accent-mid); }
+  .exp-date { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); letter-spacing: 0.06em; margin-bottom: 4px; }
+  .exp-role { font-weight: 500; font-size: 15px; margin-bottom: 2px; }
+  .exp-company { color: var(--accent-mid); font-size: 14px; margin-bottom: 6px; }
+  .exp-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.55; }
+
+  /* CERTS */
+  .certs-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+  .cert-badge { display: flex; align-items: center; gap: 10px; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 12px 18px; font-size: 13px; font-weight: 500; }
+  .cert-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+  .cert-icon.ms { background: #e8f0fe; }
+  .cert-icon.tab { background: #e8f5fb; }
+
+  /* PROJECTS */
+  #projects .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .project-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .project-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-tag { display: inline-block; font-size: 11px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.08em; padding: 3px 10px; border-radius: 100px; margin-bottom: 1rem; }
+  .tag-ai { background: var(--gold-light); color: var(--gold); }
+  .tag-eng { background: var(--accent-light); color: var(--accent); }
+  .tag-data { background: #edf2ff; color: #3557c0; }
+  .tag-cloud { background: #f0f9ff; color: #0369a1; }
+  .project-card h3 { font-family: var(--serif); font-weight: 400; font-size: 20px; margin-bottom: 0.75rem; }
+  .project-card p { color: var(--ink-muted); font-size: 14px; flex-grow: 1; }
+  .project-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 1.25rem; font-size: 13px; font-weight: 500; color: var(--accent-mid); text-decoration: none; }
+
+  /* SERVICES */
+  #services { background: var(--accent); max-width: 100%; padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem); }
+  #services .inner { max-width: 1120px; margin: 0 auto; }
+  #services .section-label { color: rgba(255,255,255,0.5); }
+  #services h2 { color: #fff; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
+  .service-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius-lg); padding: 1.75rem; transition: background 0.2s; }
+  .service-card:hover { background: rgba(255,255,255,0.12); }
+  .service-icon { width: 44px; height: 44px; background: rgba(255,255,255,0.12); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+  .service-icon svg { width: 22px; height: 22px; stroke: rgba(255,255,255,0.85); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  .service-card h3 { color: #fff; font-size: 16px; margin-bottom: 0.5rem; }
+  .service-card p { color: rgba(255,255,255,0.6); font-size: 14px; line-height: 1.6; }
+
+  /* CONTACT */
+  #contact { text-align: center; }
+  .contact-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: clamp(2.5rem, 5vw, 4rem); max-width: 680px; margin: 0 auto; box-shadow: var(--shadow); }
+  .contact-card h2 { margin-bottom: 1rem; }
+  .contact-card p { color: var(--ink-muted); margin-bottom: 2rem; font-size: 17px; }
+  .social-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+  .social-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--bg); border: 1px solid var(--border); color: var(--ink); font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: 100px; text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+  .social-btn:hover { border-color: var(--accent); background: var(--accent-light); }
+  .social-btn svg { width: 16px; height: 16px; }
+
+  footer { text-align: center; padding: 3rem clamp(1.5rem, 5vw, 4rem) 2rem; border-top: 1px solid var(--border); font-size: 13px; color: var(--ink-faint); font-family: var(--mono); }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+  .fade-up { animation: fadeUp 0.65s ease both; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.2s; }
+  .delay-3 { animation-delay: 0.35s; }
+
+  @media (max-width: 768px) {
+    #hero { grid-template-columns: 1fr; gap: 2.5rem; min-height: auto; }
+    .hero-visual { order: -1; }
+    .avatar-frame { width: 180px; height: 220px; }
+    .hero-badge { right: 0; }
+    #about .grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .stat-divider { display: none; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#hero" class="nav-logo">sandeeptelaga.dev</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:telagasandeepreddy@gmail.com" class="nav-cta">Get in touch</a>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div>
+    <p class="hero-eyebrow fade-up"><span>Senior Data Analyst &amp; BI Solutions Lead</span></p>
+    <h1 class="fade-up delay-1">Hi, I'm <em>Sandeep</em><br>Reddy Telaga</h1>
+    <p class="hero-sub fade-up delay-2">
+      11+ years turning enterprise data into decisions. I build BI platforms, data pipelines, and AI-powered analytics for healthcare, pharma, and beyond.
+    </p>
+    <div class="btn-group fade-up delay-3">
+      <a href="#projects" class="btn-primary">
+        View my work
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <a href="#contact" class="btn-outline">Let's talk</a>
+    </div>
+  </div>
+  <div class="hero-visual fade-up delay-2">
+    <div class="avatar-frame">
+      <!-- Replace with: <img src="your-photo.jpg" alt="Sandeep Reddy Telaga" /> -->
+      <span class="avatar-placeholder">SR</span>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-dot"></div>
+      <div>
+        <div style="font-weight:500;font-size:13px;">Open to opportunities</div>
+        <div style="font-size:11px;color:var(--ink-muted);">Charlotte, NC</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div><div class="stat-value">11+</div><div class="stat-label">Years Experience</div></div>
+    <div class="stat-divider"></div>
+    <div><div class="stat-value">4</div><div class="stat-label">BI Platforms</div></div>
+    <div class="stat-divider"></div>
+    <div><div class="stat-value">30%</div><div class="stat-label">Reporting Efficiency Gain</div></div>
+    <div class="stat-divider"></div>
+    <div><div class="stat-value">20%</div><div class="stat-label">Cost Reduction Delivered</div></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="grid">
+    <div class="about-text">
+      <p class="section-label">About me</p>
+      <h2>BI Lead &amp; <em style="font-style:italic">Data Engineer</em></h2>
+      <p>
+        I'm a Senior Data Analyst and BI Solutions Lead with over 11 years of experience delivering enterprise-scale analytics across healthcare, pharma, and manufacturing. Currently at <strong>Premier Inc</strong> in Charlotte, NC, where I lead Tableau-to-Looker migrations on GCP and drive predictive analytics for healthcare supply chains.
+      </p>
+      <p>
+        My superpower is bridging technical depth with business impact — from optimizing SQL at scale to translating data into boardroom-ready insights. I hold two industry certifications and have worked across Tableau, Power BI, Cognos, and SAP BO.
+      </p>
+
+      <div class="certs-row">
+        <div class="cert-badge">
+          <div class="cert-icon ms">🪟</div>
+          <div>
+            <div style="font-size:12px;color:var(--ink-faint);font-family:var(--mono)">MICROSOFT</div>
+            Power BI Data Analyst
+          </div>
+        </div>
+        <div class="cert-badge">
+          <div class="cert-icon tab">📊</div>
+          <div>
+            <div style="font-size:12px;color:var(--ink-faint);font-family:var(--mono)">TABLEAU</div>
+            Desktop Certified Pro
+          </div>
+        </div>
+      </div>
+
+      <div class="skills-section">
+        <div class="skills-category">
+          <div class="skills-category-label">Visualization</div>
+          <div class="skills-list">
+            <span class="skill-tag">Tableau</span>
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Looker</span>
+            <span class="skill-tag">Cognos</span>
+            <span class="skill-tag">SAP BO</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <div class="skills-category-label">Data &amp; Cloud</div>
+          <div class="skills-list">
+            <span class="skill-tag blue">BigQuery</span>
+            <span class="skill-tag blue">Snowflake</span>
+            <span class="skill-tag blue">AWS</span>
+            <span class="skill-tag blue">Azure</span>
+            <span class="skill-tag blue">GCP</span>
+            <span class="skill-tag blue">Spark</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <div class="skills-category-label">Engineering &amp; ETL</div>
+          <div class="skills-list">
+            <span class="skill-tag gold">Python</span>
+            <span class="skill-tag gold">SQL</span>
+            <span class="skill-tag gold">DAX</span>
+            <span class="skill-tag gold">Informatica</span>
+            <span class="skill-tag gold">Talend</span>
+            <span class="skill-tag gold">Alteryx</span>
+          </div>
+        </div>
+        <div class="skills-category">
+          <div class="skills-category-label">Databases</div>
+          <div class="skills-list">
+            <span class="skill-tag">Oracle</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">SQL Server</span>
+            <span class="skill-tag">Teradata</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="section-label">Experience</p>
+      <div class="experience-timeline">
+        <div class="exp-item">
+          <div class="exp-date">APR 2020 – PRESENT</div>
+          <div class="exp-role">BI Solutions Lead</div>
+          <div class="exp-company">Premier Inc · Charlotte, NC</div>
+          <div class="exp-desc">Led Tableau-to-Looker migration on GCP. Built predictive analytics for healthcare supply chains, reducing provider costs by 20% and improving reporting refresh efficiency by 30%.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-date">JAN 2016 – APR 2020</div>
+          <div class="exp-role">Sr. BI Engineer</div>
+          <div class="exp-company">Johnson &amp; Johnson</div>
+          <div class="exp-desc">BI SME for consumer, pharma, and vision care divisions. Built sales, finance, and P&amp;L dashboards in Tableau and Cognos. Improved revenue identification by 10% through cost-cutdown analytics.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-date">JAN 2012 – JUN 2014</div>
+          <div class="exp-role">BI Developer</div>
+          <div class="exp-company">AMW Motors Ltd</div>
+          <div class="exp-desc">Built customer sales solutions using SAP BO, Web Intelligence, and Crystal Reports. Designed semantic layers using IDT and Universe Design Tool.</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-date">2015</div>
+          <div class="exp-role">M.S. Information Technology</div>
+          <div class="exp-company">Hood College · Frederick, MD</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">Selected work</p>
+  <h2>Key projects &amp; initiatives</h2>
+  <div class="cards">
+    <a href="#" class="project-card">
+      <span class="project-tag tag-cloud">Cloud Migration</span>
+      <h3>Tableau → Looker on GCP</h3>
+      <p>Led end-to-end migration of enterprise Tableau dashboards to Looker with LookML semantic models in BigQuery. Improved performance, governance, and reduced dashboard load times across the organization.</p>
+      <span class="project-link">
+        Read more
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </span>
+    </a>
+    <a href="#" class="project-card">
+      <span class="project-tag tag-ai">Predictive Analytics</span>
+      <h3>Healthcare Supply Chain Intelligence</h3>
+      <p>Embedded predictive analytics into BI reporting at Premier Inc, enabling better procurement decisions for healthcare providers and delivering a 20% cost reduction.</p>
+      <span class="project-link">
+        Read more
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </span>
+    </a>
+    <a href="#" class="project-card">
+      <span class="project-tag tag-eng">BI Engineering</span>
+      <h3>J&amp;J Sales &amp; P&amp;L Dashboards</h3>
+      <p>Built enterprise-scale sales, finance, and P&amp;L reporting for consumer, pharma, and vision care divisions at Johnson &amp; Johnson. Identified cost areas driving a 10% revenue improvement.</p>
+      <span class="project-link">
+        Read more
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </span>
+    </a>
+    <a href="#" class="project-card">
+      <span class="project-tag tag-data">ETL Automation</span>
+      <h3>Python REST API Data Pipeline</h3>
+      <p>Integrated Python REST APIs to automate data extraction, transformation, and ingestion into BigQuery, eliminating manual workflows and enabling real-time Looker reporting.</p>
+      <span class="project-link">
+        Read more
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap: round; stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </span>
+    </a>
+    <a href="#" class="project-card">
+      <span class="project-tag tag-eng">BI Migration</span>
+      <h3>Cognos &amp; Tableau → Power BI</h3>
+      <p>Migrated legacy Cognos and Tableau content to Power BI, rebuilding semantic models in Power Query and replicating dashboard UX for seamless user adoption across enterprise teams.</p>
+      <span class="project-link">
+        Read more
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </span>
+    </a>
+    <a href="#" class="project-card">
+      <span class="project-tag tag-cloud">Server Admin</span>
+      <h3>Tableau Server Governance</h3>
+      <p>Administered Tableau Server infrastructure, configured health monitoring via the Postgres repository, implemented Row-Level Security, and embedded automated data quality testing with Datagaps and WIIISDOM.</p>
+      <span class="project-link">
+        Read more
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+      </span>
+    </a>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<div id="services">
+  <div class="inner">
+    <p class="section-label">What I do</p>
+    <h2>How I can help</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <h3>BI Dashboard Design</h3>
+        <p>Enterprise dashboards in Tableau, Power BI, Looker, or Cognos — built to the metrics that matter most.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Data Pipeline Engineering</h3>
+        <p>Scalable ETL and data pipelines using Python, SQL, Talend, Informatica, or Alteryx — from source to report.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3>Predictive Analytics</h3>
+        <p>Embed forecasting and predictive models into BI workflows to drive proactive, data-first decision making.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>BI Tool Migrations</h3>
+        <p>Migrate from legacy tools (Cognos, Crystal Reports, WebFocus) to modern platforms without losing business logic.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+        </div>
+        <h3>Cloud Analytics (GCP/AWS/Azure)</h3>
+        <p>Design and optimize cloud data warehouses on BigQuery, Snowflake, Redshift, or Synapse for BI workloads.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Training &amp; Mentoring</h3>
+        <p>SQL workshops, LookML modeling sessions, and BI best practices training for analyst teams.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-card">
+    <p class="section-label">Get in touch</p>
+    <h2>Let's work together</h2>
+    <p>Whether it's a BI migration, a new analytics platform, or just a conversation about data — I'd love to connect.</p>
+    <a href="mailto:telagasandeepreddy@gmail.com" class="btn-primary" style="display:inline-flex;margin-bottom:0.5rem;">
+      telagasandeepreddy@gmail.com
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+    </a>
+    <div class="social-row">
+      <a href="https://linkedin.com/in/sandyreddybi" class="social-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.23 0H1.77C.79 0 .77.79 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0z"/></svg>
+        LinkedIn
+      </a>
+      <a href="tel:7033806062" class="social-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.36 2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.78a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        703-380-6062
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Sandeep Reddy Telaga · Charlotte, NC · Built with HTML &amp; CSS · Free hosting via GitHub Pages</p>
+</footer>
+
+</body>
+</html>
